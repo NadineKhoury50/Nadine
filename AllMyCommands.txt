@@ -1,0 +1,154 @@
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git config --global user.name "NadineKhoury50"
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git config --global user.email "nr.khoury50@gmail.com"
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git init
+Initialized empty Git repository in C:/Users/G50/Desktop/My Folder/.git/
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git git file1.txt
+git: 'git' is not a git command. See 'git --help'.
+
+The most similar command is
+        init
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git add file1.txt
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git add file2.txt
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git add file3.txt
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git commit -m "Added three files"
+[master (root-commit) 289d626] Added three files
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git rm file2.txt
+rm 'file2.txt'
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git commit -m "Deleted file 2"
+[master 88b67b9] Deleted file 2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 file2.txt
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git log
+commit 88b67b91dc065ea6e047f400e0eda9b346ce4b03 (HEAD -> master)
+Author: NadineKhoury50 <nr.khoury50@gmail.com>
+Date:   Tue Feb 13 16:53:54 2018 +0200
+
+    Deleted file 2
+
+commit 289d626e01911dd9e67e2c65bbf089284fc36b41
+Author: NadineKhoury50 <nr.khoury50@gmail.com>
+Date:   Tue Feb 13 16:44:54 2018 +0200
+
+    Added three files
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git revert 88b67b91dc065ea6e047f400e0eda9b346ce4b03
+[master d2e1699] Revert "Deleted file 2"
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file2.txt
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git commit -m "after deleting the file, i reverted back "
+On branch master
+Untracked files:
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git remote add origin https://github.com/NadineKhoury50/Nadine.git
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git push origin master
+fatal: unable to access 'https://github.com/NadineKhoury50/Nadine.git/': Could not resolve host: github.com
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git push origin master
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 9.75 KiB | 1.22 MiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/NadineKhoury50/Nadine.git
+ * [new branch]      master -> master
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ touch README.md
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ vim README.md
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git commit -m "Create README.md file that contains details about the project, the repo content and the author"
+On branch master
+Untracked files:
+        AllMyCommands.txt
+        README.md
+
+nothing added to commit but untracked files present
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git checkout -b ReadMe
+Switched to a new branch 'ReadMe'
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (ReadMe)
+$ git commit -m "making new branch called ReadMe"
+On branch ReadMe
+Untracked files:
+        AllMyCommands.txt
+        README.md
+
+nothing added to commit but untracked files present
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (ReadMe)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (ReadMe)
+$ git add README.md
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (ReadMe)
+$ git commit -m "added README.md to ReadMe branch"
+[ReadMe e5a058f] added README.md to ReadMe branch
+ 1 file changed, 4 insertions(+)
+ create mode 100644 README.md
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (ReadMe)
+$ git checkout master
+Switched to branch 'master'
+
+G50@Lenovo-PC MINGW64 ~/Desktop/My Folder (master)
+$ git merge ReadMe
+Updating d2e1699..e5a058f
+Fast-forward
+ README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 README.md
